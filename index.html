@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gnome Timer</title>
+    <meta charset="utf-8">
+    <link rel="manifest" href="/manifest.json">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A timer for a certain gnome">
+    <meta name="theme-color" content="#bf00ff" />
+    <link rel="stylesheet" type="text/css" href="/styles/inline.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/icons/icon-192.png">
+</head>
+<body onload="init()" class="bg" >
+    <header class="fg">
+        <h1>Gnome Timer</h1>
+        <button id="buttInstall" aria-label="Install" hidden></button>
+        <button id="buttColor" aria-label="Switch Color"></button>
+    </header>
+    <main>
+        <ul id="left">
+            <li id="year"></li>
+            <li id="month"></li>
+            <li id="week"></li>
+            <li id="day"></li>
+            <li id="hour"></li>
+            <li id="minute"></li>
+            <li id="second"></li>
+        </ul>
+        <ul id="right">
+            <li id="yearlab"></li>
+            <li id="monthlab"></li>
+            <li id="weeklab"></li>
+            <li id="daylab"></li>
+            <li id="hourlab"></li>
+            <li id="minutelab"></li>
+            <li id="secondlab"></li>
+        </ul>
+    </main>
+    <main>
+        <ul class="next">
+            <li id="next"></li>
+        </ul>
+    </main>
+    
+    <div id="modal">
+        <div id="modal-content">
+            <span id="modal-close">&times;</span>
+            <span>Select a color scheme.</span>
+            <div id="colorsel"></div>
+            <span id="selcolor"></span>
+            <br/>
+            <button id="rmbutton">Remove Current Color Scheme</button>
+            <hr/>
+            <p>Add Color Scheme:</p>
+            <div id="addcolor">
+                <button  id="addcolorfg" class="dispcolor cfg jscolor {valueElement:null,value:'ff6699',uppercase:false,valueElement:'selfgcolor'}" style="pointer-events: all"></button>
+                <button  id="addcolorbg" class="dispcolor cbg jscolor {valueElement:null,value:'CC66FF',uppercase:false,valueElement:'selbgcolor'}" style="pointer-events: all"></button>
+            </div>
+            <button id="addbutton">+</button>
+            <div id="prevtxt">
+                <br/>
+                <span>Current foreground color: </span><span id="selfgcolor"></span>
+                <br/>
+                <span>Current background color: </span><span id="selbgcolor"></span>
+                <br/>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/install.js"></script>
+    <script src="/scripts/jscolor.js"></script>
+    <script>
+        "serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(e){console.log("ServiceWorker registration successful with scope: ",e.scope)},function(e){console.log("ServiceWorker registration failed: ",e)})});
+    </script>
+
+
+</body>
+</html>
