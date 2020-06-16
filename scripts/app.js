@@ -3,7 +3,13 @@ var btn = document.getElementById("buttColor");
 var modalspace = document.getElementById("colorsel");
 var colors = []; colors = JSON.parse(localStorage.getItem('colors'));
 var colorIndex = parseInt(localStorage.getItem('colorIndex'),10);
+function test(){
+    console.log(":)");
+}
 function init(){
+    navigator.serviceWorker.addEventListener('message', event => {
+        console.log(event.data.msg);
+    });
     //init persistant variables
     if (!colorIndex){
         colorIndex = 0;

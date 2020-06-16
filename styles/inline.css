@@ -167,13 +167,14 @@ header button {
 }
 
 main {
-	overflow-x: hidden;
-	overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     width: 95%;
     box-shadow: 10px;
     position: relative;
     margin: 5% auto;
     background-color: rgba(255,255,255,0.3);
+    padding: 1em;
 }
 main ul{
     list-style: none;
@@ -237,7 +238,7 @@ main ul li{
     position: relative;
     right: -2%;
     top: -0.6em;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
 }
 #modal-close:hover,
