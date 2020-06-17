@@ -3,13 +3,27 @@ var btn = document.getElementById("buttColor");
 var modalspace = document.getElementById("colorsel");
 var colors = []; colors = JSON.parse(localStorage.getItem('colors'));
 var colorIndex = parseInt(localStorage.getItem('colorIndex'),10);
-function test(){
-    console.log(":)");
-}
 function init(){
-    navigator.serviceWorker.addEventListener('message', event => {
-        console.log(event.data.msg);
-    });
+    //init service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            // registration worked
+            console.log("ServiceWorker registration successful with scope: ",registration.scope);
+            navigator.serviceWorker.addEventListener('updatefound',function(){
+                console.log("update found");
+                registration.update();
+            });
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                console.log("updated cache available, reloading...")
+                window.location.reload();
+            });
+        })
+            .catch(function(error) {
+            // registration failed
+            console.log("ServiceWorker registration failed: ",error);
+        });
+    };
+    
     //init persistant variables
     if (!colorIndex){
         colorIndex = 0;

@@ -75,8 +75,8 @@
                 <hr>
                 <p>Add Color Scheme:</p>
                 <div id="addcolor">
-                    <button id="addcolorfg" class="dispcolor cfg jscolor {valueElement:null,value:'ff6699',uppercase:false,valueElement:'selfgcolor'}" style="pointer-events: all"></button>
-                    <button id="addcolorbg" class="dispcolor cbg jscolor {valueElement:null,value:'CC66FF',uppercase:false,valueElement:'selbgcolor'}" style="pointer-events: all"></button>
+                    <button id="addcolorfg" class="dispcolor cfg" data-jscolor="{valueElement:null,value:'ff6699',uppercase:false,valueElement:'selfgcolor'}" style="pointer-events: all"></button>
+                    <button id="addcolorbg" class="dispcolor cbg" data-jscolor="{valueElement:null,value:'CC66FF',uppercase:false,valueElement:'selbgcolor'}" style="pointer-events: all"></button>
                 </div>
                 <button id="addbutton">+</button>
                 <div id="prevtxt">
@@ -92,6 +92,5 @@
         <script src="sw.js"></script>
         <script src="/scripts/install.js"></script>
         <script src="/scripts/jscolor.js"></script>
-        <script>"serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(e){console.log("ServiceWorker registration successful with scope: ",e.scope)},function(e){console.log("ServiceWorker registration failed: ",e)})});</script>
     </body>
 </html>
