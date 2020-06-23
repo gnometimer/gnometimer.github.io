@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-uwu';
+const CACHE_NAME = 'static-cache-uwuwu';
 const FILES_TO_CACHE = [
   '/',
   '/index.html',

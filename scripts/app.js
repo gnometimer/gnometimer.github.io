@@ -106,20 +106,19 @@ function display(){
     
     floor = Math.floor;
     var about = floor((new Date()).getTime() / 1000);
-    var time = (about - (1561136400 - 12)) / 86400;
-//    var time = (about - 1561136400)/ 86400;
-    var times = [
-        (time/365),
-        (time/30.4167),
-        ((time/30.4167)%1*4.34524),
-        (((time/30.4167)%1*4.34524)%1*7),
-        ((((time/30.4167)%1*4.34524)%1*7)%1*24),
-        (((((time/30.4167)%1*4.34524)%1*7)%1*24)%1*60),
-        ((((((time/30.4167)%1*4.34524)%1*7)%1*24)%1*60)%1*60)
-    ];
+    var time = (about - (1561136400 - 0)) / 86400;
+    var times = [];
+    times[0] = time/365;
+    times[1] = times[0]%1 * 12;
+    times[2] = times[1]%1 * 4.34524;
+    times[3] = times[2]%1 * 7;
+    times[4] = times[3]%1 * 24;
+    times[5] = times[4]%1 * 60;
+    times[6] = times[5]%1 * 60;
+
     for (var i=0;i<times.length;i++) {times[i] = floor(times[i]);}
     for (var l=0,unit=["year","month","week","day","hour","minute","second"];l<unit.length;l++){
-        document.getElementById(unit[l]).innerHTML = times[l];
+        document.getElementById(unit[l]).innerHTML = floor(times[l]);
         if(times[l]!=1){
             document.getElementById(unit[l]+"lab").innerHTML = unit[l][0].toUpperCase() +  
             unit[l].slice(1)+"s";
